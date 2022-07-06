@@ -1,0 +1,12 @@
+--Create a grocery store database
+
+CREATE TABLE items (id INTEGER PRIMARY KEY, item TEXT, price INTEGER, sold INTEGER, aisle INTEGER);
+INSERT INTO items VALUES (1, "shirts",15,10,2);
+INSERT INTO items VALUES (2, "pants",25,5,1);
+
+--display the database ordered by price. 
+SELECT * FROM store
+ORDER BY price desc; 
+
+--how many items have been sold?
+SELECT SUM(sold) FROM items;
