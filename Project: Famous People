@@ -1,3 +1,5 @@
+#In this SQL code, I'm creating tables about famous people, movies, and songs and querying the database to answer questions about the data.
+
 CREATE TABLE famous_people (id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT, talent TEXT);
 
 CREATE TABLE movies (id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT, actor_id INTEGER, actor2_id INTEGER, genre TEXT);
@@ -44,7 +46,6 @@ INSERT INTO songs (name, singer_id, release_year) VALUES ( "Me Enamoré" , 15, 2
 INSERT INTO songs (name, singer_id, release_year) VALUES ( "Dancing In the Dark" , 14, 1984);
 INSERT INTO songs (name, singer_id, release_year) VALUES ( "All too Well" , 4, 2012);
 INSERT INTO songs (name, singer_id, release_year) VALUES ( "One Last Time" , 13, 2017);
-
 
 
 SELECT  movies.name, famous_people.name
