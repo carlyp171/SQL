@@ -1,0 +1,61 @@
+CREATE TABLE famous_people (id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT, talent TEXT);
+
+CREATE TABLE movies (id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT, actor_id INTEGER, actor2_id INTEGER, genre TEXT);
+
+CREATE TABLE songs (id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT, singer_id INTEGER, release_year INTEGER);
+
+INSERT INTO famous_people (name, talent) VALUES ( "Robert Downey Jr." , "Actor"); 
+INSERT INTO famous_people (name, talent) VALUES ( "Sandra Bullock" , "Actress"); 
+INSERT INTO famous_people (name, talent) VALUES ( "Carrie Fisher" , "Actress"); 
+INSERT INTO famous_people (name, talent) VALUES ( "Taylor Swift" , "Singer"); 
+INSERT INTO famous_people (name, talent) VALUES ( "Stevie Nicks" , "Singer"); 
+INSERT INTO famous_people (name, talent) VALUES ( "John Lennon" , "Singer");
+INSERT INTO famous_people (name, talent) VALUES ( "Soft Cell" , "Singer");
+INSERT INTO famous_people (name, talent) VALUES ( "Johnny Depp" , "Actor"); 
+INSERT INTO famous_people (name, talent) VALUES ( "Leonardo DiCaprio" , "Actor"); 
+INSERT INTO famous_people (name, talent) VALUES ( "Harrison Ford" , "Actor");
+INSERT INTO famous_people (name, talent) VALUES ( "Morgan Freeman" , "Actor");
+INSERT INTO famous_people (name, talent) VALUES ( "Chris Evans" , "Actor");
+INSERT INTO famous_people (name, talent) VALUES ( "Ariana Grande" , "Singer");
+INSERT INTO famous_people (name, talent) VALUES ( "Bruce Springsteen" , "Singer");
+INSERT INTO famous_people (name, talent) VALUES ( "Shakira" , "Singer");
+
+INSERT INTO movies (name, actor_id, genre) VALUES ("Iron Man" , 1,  "Action"); 
+INSERT INTO movies (name, actor_id, genre) VALUES ("Miss Congeniality" , 2,  "Comedy"); 
+INSERT INTO movies (name, actor_id, actor2_id, genre) VALUES ("Star Wars: Episode IV - A New Hope" , 3, 10,  "Science Fiction");
+INSERT INTO movies (name, actor_id, actor2_id, genre) VALUES ( "Avengers: Endgame" , 1, 12,  "Action");
+INSERT INTO movies (name, actor_id, genre) VALUES ( "Pirates of the Caribbean: The Curse of the Black Pearl" , 8,  "Action");
+INSERT INTO movies (name, actor_id, genre) VALUES ( "Shawshank Redemption" , 11,  "Drama");
+INSERT INTO movies (name, actor_id, genre) VALUES ( "Titanic" , 9,  "Romance");
+INSERT INTO movies (name, actor_id, genre) VALUES ( "Inception" , 9,  "Thriller");
+INSERT INTO movies (name, actor_id, genre) VALUES ( "Alice in Wonderland" , 8,  "Fantasy");
+INSERT INTO movies (name, actor_id, genre) VALUES ( "Edward Scissorhands" , 8,  "Fantasy/Romance");
+INSERT INTO movies (name, actor_id, genre) VALUES ("The Blind Side" , 2,  "Drama"); 
+INSERT INTO movies (name, actor_id, genre) VALUES ("Bird Box" , 2,  "Thriller"); 
+INSERT INTO movies (name, actor_id, actor2_id, genre) VALUES ("Star Wars: Episode VI - Return of the Jedi" , 3, 10,  "Science Fiction");
+INSERT INTO movies (name, actor_id, genre) VALUES ( "Invictus" , 11,  "Drama");
+INSERT INTO movies (name, actor_id, genre) VALUES ( "Lucy" , 11,  "Action");
+
+INSERT INTO songs (name, singer_id, release_year) VALUES ( "You Belong With Me" , 4, 2008);
+INSERT INTO songs (name, singer_id, release_year) VALUES ( "Edge of Seventeen" , 5, 1981);
+INSERT INTO songs (name, singer_id, release_year) VALUES ( "Imagine" , 6, 1971);
+INSERT INTO songs (name, singer_id, release_year) VALUES ( "Tainted Love" , 7, 1981);
+INSERT INTO songs (name, singer_id, release_year) VALUES ( "Me Enamoré" , 15, 2017);
+INSERT INTO songs (name, singer_id, release_year) VALUES ( "Dancing In the Dark" , 14, 1984);
+INSERT INTO songs (name, singer_id, release_year) VALUES ( "All too Well" , 4, 2012);
+INSERT INTO songs (name, singer_id, release_year) VALUES ( "One Last Time" , 13, 2017);
+
+
+
+SELECT  movies.name, famous_people.name
+    FROM movies
+    JOIN famous_people
+    ON famous_people.id = movies.actor_id 
+    OR famous_people.id = movies.actor2_id
+    ORDER BY movies.name;
+    
+SELECT  f.name, s.name 
+    FROM famous_people f
+    JOIN songs s
+    ON f.id = s.singer_id
+    ORDER BY f.name;
